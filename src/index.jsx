@@ -368,7 +368,6 @@ export default class ImagesUploader extends Component {
 					const err = {
 						message: 'server error',
 						status: response ? response.status : false,
-						response,
 						fileName: 'ImagesUploader',
 					};
 					this.setState({
@@ -405,10 +404,7 @@ export default class ImagesUploader extends Component {
 		this.setState({
 			loadState: 'loading',
 		});
-		// Return when cancel button click but onChange event trigger
-		if (filesList.length === 0) {
-			return;
-		}
+
 		if (this.props.max
 			&& (filesList.length + this.state.imagePreviewUrls.length) > this.props.max
 		) {
